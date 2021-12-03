@@ -9,6 +9,7 @@ import QueryProvider from "context/QueryContext";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 const Home = ({ launches }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log(launches)
   return (
     <>
       <HeadDefault
