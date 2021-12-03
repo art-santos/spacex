@@ -16,7 +16,7 @@ const QueryContext = React.createContext({});
   } = useQuery(LOAD_MORE_QUERY, {
     variables: {
       offset: 0,
-      limit: 12,
+      limit: 8,
       mission: "",
       rocket: "",
     },
@@ -26,14 +26,14 @@ const QueryContext = React.createContext({});
     if (typeSearch === "mission"){
       refetch({
         offset: 0,
-        limit: 12,
+        limit: 8,
         rocket: "",
         mission: e,
       });
     } else {
       refetch({
         offset: 0,
-        limit: 12,
+        limit: 8,
         mission: "",
         rocket: e,
       });

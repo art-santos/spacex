@@ -34,8 +34,8 @@ const HomePage = ({ data }: DataHome) => {
             setLoad(true);
             fetchMore({
               variables: {
-                offset: launches.launches.length + 13 || 0,
-                limit: 12,
+                offset: launches.launches.length + 8 || 0,
+                limit: 8,
               },
               updateQuery: (prev: Launches, { fetchMoreResult }) => {
                 !fetchMoreResult.launches[0] ? setLoad(false) : setLoad(true);

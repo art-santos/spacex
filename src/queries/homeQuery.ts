@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const HOME_QUERY = gql`
 {
-  launches(sort: "mission_name", limit: 12) {
+  launches(sort: "mission_name", limit: 8) {
     mission_name
     launch_year
     launch_success
