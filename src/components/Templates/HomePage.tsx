@@ -6,13 +6,19 @@ import CardFactory from "components/molecules/CardFactory";
 import HeroText from "components/organisms/HeroText";
 import SearchBar from "components/organisms/SearchBar";
 import { useQueryContext } from "context/QueryContext";
-import { DataHome, Launches } from "types/launches";
+import { Launches } from "types/launches";
+import dynamic from "next/dynamic";
 
-const HomePage = ({ data }: DataHome) => {
+const HomePage = () => {
+
+  const DynamicHeroText = dynamic(
+    () => import('components/organisms/HeroText'),
+  )
+
   const [load, setLoad] = React.useState(false);
   const { loading, launchData: launches, error, fetchMore } = useQueryContext();
 
-  React.useCallback(() =>{
+  React.useMemo(() =>{
     if(loading){
       setLoad(false);
     }
@@ -22,10 +28,9 @@ const HomePage = ({ data }: DataHome) => {
   return (
     <>
       <Box mb={8} w="full">
-        <HeroText />
+        <DynamicHeroText />
         <SearchBar />
         {error && <p>Error :(</p>}
-        {loading && <CardFactory data={ data } />}
         {!loading && <CardFactory data={ launches.launches } />}
         <Box h="10vh" />
         {!loading && (
@@ -59,11 +64,11 @@ const HomePage = ({ data }: DataHome) => {
             setLoad(false);
           }}
         />)}
-        {load && (
+        {loading || load ? (
           <Flex id="loading" h="30vh" justify="center" align="center">
             <Spinner id="loading"/>
           </Flex>
-        )}
+        ) : null}
       </Box>
     </>
   );

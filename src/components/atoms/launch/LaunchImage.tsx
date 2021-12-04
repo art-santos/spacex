@@ -5,7 +5,7 @@ interface Image {
   image: string
 }
 
-const LaunchImage = ({ image }: Image) => {
+const LaunchImage = React.forwardRef<HTMLInputElement>(({image}:any, ref) => {
   return (
     <Image
       src={image}
@@ -15,8 +15,8 @@ const LaunchImage = ({ image }: Image) => {
       objectFit="cover"
       alt="rocket"
       m={[3, 3, 3, 3, 4]}
+      ref={ref as any}
     />
   );
-};
-
+});
 export default LaunchImage;

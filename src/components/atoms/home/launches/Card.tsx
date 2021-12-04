@@ -5,9 +5,9 @@ import {
   Link,
   Text,
   VStack,
-  Image,
 } from "@chakra-ui/react";
 import React from "react";
+import Image from 'next/image';
 
 import getIcon from "components/atoms/default/Icons";
 import { LaunchesInterface, Links } from "types/launches";
@@ -37,13 +37,21 @@ const Card = ({ data }: Data) => {
           width="350px"
           m="auto"
         >
-          <Image
-            height={200}
-            width={350}
-            borderRadius="25px 25px 0px 0px"
-            src={link as string}
-            mb={5}
-          />
+          <Flex justify="center" 
+          borderRadius="25px 25px 0px 0px" 
+          align="center"
+          overflow="hidden"
+          >
+            <Image
+              height={200}
+              width={350}
+              src={link as string}
+              className="image-card"
+              alt={data.mission_name as string}
+              layout="intrinsic"
+              quality={90}
+            />
+          </Flex>
           <Success data={data.launch_success}/>
           <Box justify="center" align="center">
             <Heading as="h3" size="lg">
@@ -82,3 +90,10 @@ const Card = ({ data }: Data) => {
 };
 
 export default Card;
+
+
+<style jsx global>{`
+    .image-card {
+      border-radius: 25px 25px 0px 0px;
+    }
+`}</style>

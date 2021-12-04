@@ -8,7 +8,7 @@ const CardFactory = ({ data }: DataHome) => {
     <>
       <CardContainer >
         {data instanceof Array &&
-        data.map((item:LaunchesInterface) => {
+          data.map((item:LaunchesInterface) => {
           return <Card data={item} key={`${item.mission_name}-${item.id}`} />;
           }
         )}

@@ -6,7 +6,7 @@ import LaunchImage from "components/atoms/launch/LaunchImage";
 
 const LaunchImageFactory = ({ data }) => {
   const { launch } = data;
-  const customerLogo = React.useRef(null);
+  const LaunchImageRef = React.useRef<HTMLInputElement>(null);
   const [isSmallerThan1400] = useMediaQuery("(max-width: 1400px)");
 
   return (
@@ -20,13 +20,15 @@ const LaunchImageFactory = ({ data }) => {
         overflowX="hidden"
       >
         {launch.links.flickr_images && isSmallerThan1400 ? (
-          <Rerousel itemRef={customerLogo}>
-            {launch.links.flickr_images.map((image, index) => {
-              return <LaunchImage key={index} image={image} />;
+          <Rerousel itemRef={LaunchImageRef}>
+            {launch.links.flickr_images.map((image: string, index:number) => {
+              //@ts-ignore
+              return <LaunchImage key={index} image={image as any} ref={LaunchImageRef}/>;
             })}
           </Rerousel>
         ) : (
-          launch.links.flickr_images.map((image, index) => {
+          launch.links.flickr_images.map((image: string, index: number) => {
+            //@ts-ignore
             return <LaunchImage key={index} image={image} />;
           })
         )}

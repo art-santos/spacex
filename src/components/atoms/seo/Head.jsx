@@ -2,9 +2,6 @@ import { NextSeo } from "next-seo";
 import React from "react";
 
 const HeadDefault = ({ title, description, image }) => {
-  console.log('title', title);
-  console.log('description', description);
-  console.log('image', image);
   return (
         <NextSeo
             title={title}

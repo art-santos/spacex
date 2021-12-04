@@ -1,25 +1,20 @@
 import HomePage from "components/Templates/HomePage";
-import client from "../queries/apolloClient";
-import HOME_QUERY from "queries/homeQuery";
 import React from "react";
-import { Head } from "next/document";
 import HeadDefault from "components/atoms/seo/Head";
 import TypeSearchProvider from "context/TypeSearchContext";
 import QueryProvider from "context/QueryContext";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-const Home = ({ launches }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(launches)
+const Home = () => {
   return (
     <>
       <HeadDefault
         title="Launches"
-        description={`See all SpaceX launches like ${launches[0].mission_name}`}
-        image={launches[0].links.flickr_images[0]}
+        description={`See all SpaceX launches`}
+        image="/spacex-logo.png"
       />
       <QueryProvider>
         <TypeSearchProvider>
-          <HomePage data={launches} />
+          <HomePage />
         </TypeSearchProvider>
       </QueryProvider>
     </>
@@ -27,15 +22,3 @@ const Home = ({ launches }: InferGetServerSidePropsType<typeof getServerSideProp
 };
 
 export default Home;
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await client.query({
-    query: HOME_QUERY,
-  });
-
-  return {
-    props: {
-      launches: data.launches,
-    },
-  };
-}
