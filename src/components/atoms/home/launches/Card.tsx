@@ -24,7 +24,7 @@ const getImage = (data: Links) => {
   return data.mission_patch;
 };
 
-const Card = ({ data }: Data) => {
+const Card = React.memo(({ data }: Data) => {
   const link = getImage(data.links);
 
   return (
@@ -87,13 +87,6 @@ const Card = ({ data }: Data) => {
       </Link>
     </>
   );
-};
+});
 
 export default Card;
-
-
-<style jsx global>{`
-    .image-card {
-      border-radius: 25px 25px 0px 0px;
-    }
-`}</style>
