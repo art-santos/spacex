@@ -1,7 +1,7 @@
 import { LinkBox, LinkOverlay, Text, Box, Icon } from "@chakra-ui/react";
-import NextLink from "next/link";
 
 import getIcon from "../default/Icons";
+import DefaultLink from "../default/Link";
 
 interface Link {
   data: String;
@@ -26,9 +26,9 @@ const LaunchLink = ({ data, source }: Link) => {
     <LinkBox as="article" p={10} boxShadow="lg" borderRadius="25px" w="100%">
       <Icon as={getIcon(source)} h={50} w={50} />
       <Text fontSize="xl">
-        <NextLink href={data as any} passHref>
+        <DefaultLink Href={ data }>
           <LinkOverlay>{getName(source as string)}</LinkOverlay>
-        </NextLink>
+        </DefaultLink>
       </Text>
       <Box
         as="a"

@@ -10,7 +10,7 @@ const SearchToggle = () => {
   return (
     <Button
       id="search-toggle"
-      w={["100%", "100%", "100%", "100%", "20%"]}
+      w="100%"
       rounded="md"
       className={typeSearch === "mission" ? "rocket" : "mission"}
       leftIcon={typeSearch  === "mission" ? getIcon("flag") : getIcon("rocket")}

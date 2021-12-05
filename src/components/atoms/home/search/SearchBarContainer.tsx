@@ -1,4 +1,4 @@
-import { HStack, Stack, VStack } from "@chakra-ui/react";
+import { HStack, FormControl, VStack, Wrap } from "@chakra-ui/react";
 import React from "react";
 
 const SearchBarContainer = ({ children }) => {
@@ -15,15 +15,17 @@ const SearchBarContainer = ({ children }) => {
           borderRadius="10px"
           boxShadow="2xl"
         >
-          <Stack
+          <FormControl>
+            <Wrap
             direction={["column", "column", "row", "row", "row"]}
-            justify="space-between"
+            justify="center"
             align="center"
             spacing={[2, 2, 2, 2, 6]}
-            width="75%"
-          >
+            width="100%"
+            >
             {children}
-          </Stack>
+            </Wrap>
+          </FormControl>
         </HStack>
       </VStack>
     </>

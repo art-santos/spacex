@@ -7,6 +7,7 @@ import LOAD_MORE_QUERY from "queries/loadMoreQuery";
 const QueryContext = React.createContext({});
 
  export default function QueryProvider({ children }: JSX.ElementChildrenAttribute) {
+   
   const {
     loading,
     error,

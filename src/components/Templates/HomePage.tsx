@@ -3,9 +3,11 @@ import React from "react";
 
 import SearchBar from "components/organisms/SearchBar";
 import { useQueryContext } from "context/QueryContext";
-import CardFactory from "components/molecules/CardFactory";
+import CardFactory from "components/organisms/CardFactory";
 import HeroText from "components/organisms/HeroText";
-import LoadingScreen from "components/atoms/home/launches/Loading";
+import LoadingScreen from "components/atoms/default/Loading";
+import ErrorScreen from "components/atoms/default/Error";
+
 const HomePage = () => {
   const { loading } = useQueryContext();
   const { error } = useQueryContext();
@@ -15,7 +17,7 @@ const HomePage = () => {
       <Box mb={8} w="full">
         <HeroText />
         <SearchBar />
-        {error && <p>Error :(</p>}
+        {error && <ErrorScreen />}
         {loading && <LoadingScreen />}
         {!loading && <CardFactory />}
         <Box h="10vh" />

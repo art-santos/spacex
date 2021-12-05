@@ -4,7 +4,7 @@ import React from "react";
 
 const SearchInput = React.forwardRef<HTMLInputElement>((props, ref) => {
   const { typeSearch } = useTypeSearch();
-
+  
     return (
       <Input
         width="100%"

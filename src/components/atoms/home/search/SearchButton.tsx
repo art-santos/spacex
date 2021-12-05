@@ -10,7 +10,7 @@ const SearchButton = ({ content }) => {
 
   return (
     <Button
-      w={["100%", "100%", "100%", "100%", "20%"]}
+      w="100%"
       rounded="md"
       id="search-submit"
       onClick={() => {

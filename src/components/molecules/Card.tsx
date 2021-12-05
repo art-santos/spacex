@@ -2,9 +2,7 @@ import {
   Box,
   Flex,
   Heading,
-  Link,
   Text,
-  VStack,
 } from "@chakra-ui/react";
 import React from "react";
 import Image from 'next/image';
@@ -12,6 +10,8 @@ import Image from 'next/image';
 import getIcon from "components/atoms/default/Icons";
 import { LaunchesInterface, Links } from "types/launches";
 import Success from "components/atoms/default/SuccessTag";
+import DefaultLink from "components/atoms/default/Link";
+import CardSkeleton from "../atoms/home/launches/Card/CardSkeleton";
 
 interface Data {
   data: LaunchesInterface;
@@ -29,14 +29,8 @@ const Card = React.memo(({ data }: Data) => {
 
   return (
     <>
-      <Link href={`/launch/${data.id}`} id={'mission-card'}>
-        <VStack
-          borderRadius="25px"
-          spacing={3}
-          boxShadow="dark-lg"
-          width="350px"
-          m="auto"
-        >
+      <DefaultLink Href={`/launch/${data.id}`} >
+        <CardSkeleton>
           <Flex justify="center" 
           borderRadius="25px 25px 0px 0px" 
           align="center"
@@ -83,8 +77,8 @@ const Card = React.memo(({ data }: Data) => {
               </Text>
             </Flex>
           </Flex>
-        </VStack>
-      </Link>
+        </CardSkeleton>
+      </DefaultLink>
     </>
   );
 });

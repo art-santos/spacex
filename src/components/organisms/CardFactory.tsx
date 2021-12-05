@@ -1,16 +1,23 @@
 import React from "react";
-import Card from "components/atoms/home/launches/Card";
-import CardContainer from "components/atoms/home/launches/CardContainer";
+import Card from "components/molecules/Card";
+import CardContainer from "components/atoms/home/launches/Card/CardContainer";
 import { LaunchesInterface } from "types/launches";
 import { useQueryContext } from "context/QueryContext";
-import LoadingScreen from "components/atoms/home/launches/Loading";
+import LoadingScreen from "components/atoms/default/Loading";
 import WaypointLoading from "components/atoms/home/launches/WaypontLoading";
+import ErrorScreen from "components/atoms/default/Error";
 
 
 const CardFactory = () => {
   
   const { loading, launchData: launches } = useQueryContext();
   const [load, setLoad] = React.useState(false);
+
+  if(launches.launches){
+    if(launches.launches.length === 0){
+      return <ErrorScreen />
+  }
+};
 
   return (
     <>
