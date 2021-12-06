@@ -3,6 +3,9 @@ import client from "queries/apolloClient";
 import LAUNCH_QUERY from "queries/launchQuery";
 import HeadDefault from "components/atoms/seo/Head";
 
+
+//The ideal render method for this page would be the get StaticProps combined with getStaticPaths.
+//However, the getStaticPaths method couldnt work with the spacex api due to the querying limit.
 export async function getServerSideProps(context) {
   const id = context.query;
   const { data } = await client.query({
