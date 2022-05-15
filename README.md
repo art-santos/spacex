@@ -14,3 +14,4 @@ The state managment and typing still need improvments.
 - GraphQl
 - Emotion Cache
 - Chakra UI
+- Apollo
